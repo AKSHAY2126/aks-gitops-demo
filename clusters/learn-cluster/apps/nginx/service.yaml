@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: india-apps # Match your deployment namespace
+spec:
+  type: LoadBalancer # Creates a public IP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: nginx # Must match your deployment's labels
