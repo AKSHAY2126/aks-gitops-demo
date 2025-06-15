@@ -1,5 +1,11 @@
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+# resources:
+# - gotk-components.yaml
+# - gotk-sync.yaml
+
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- gotk-components.yaml
-- gotk-sync.yaml
+- ../../infrastructure/namespace.yaml # Deploys namespace FIRST
+- ../../apps/nginx/deployment.yaml # Then deploys NGINX into it
